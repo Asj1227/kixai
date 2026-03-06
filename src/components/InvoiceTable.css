@@ -1,0 +1,239 @@
+.table-wrapper {
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-white);
+  box-shadow: var(--shadow-sm);
+}
+
+.table-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border-light);
+  background: var(--bg-white);
+  gap: 12px;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 500px;
+}
+
+/* ── Table base ── */
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+/* ── Header ── */
+.invoice-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.invoice-table th {
+  background: var(--kix-navy);
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 12px;
+  text-align: left;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--transition-fast);
+}
+
+.invoice-table th:hover { background: var(--kix-navy-mid); }
+.invoice-table th.sorted { background: var(--kix-navy-light); }
+.invoice-table th:last-child { border-right: none; cursor: default; }
+
+.th-content {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sort-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  opacity: 0.7;
+}
+
+.th-row-num {
+  background: var(--kix-navy) !important;
+  color: rgba(255,255,255,0.4) !important;
+  text-align: center;
+  width: 40px;
+  min-width: 40px;
+  cursor: default !important;
+}
+
+.th-actions {
+  width: 60px;
+  min-width: 60px;
+  text-align: center;
+  cursor: default !important;
+}
+
+/* ── Body rows ── */
+.invoice-table tbody tr {
+  border-bottom: 1px solid var(--border-light);
+  transition: background var(--transition-fast);
+}
+
+.invoice-table tbody tr:hover {
+  background: var(--bg-subtle);
+}
+
+.invoice-table tbody tr:last-child { border-bottom: none; }
+
+.invoice-table td {
+  padding: 8px 12px;
+  border-right: 1px solid var(--border-light);
+  vertical-align: middle;
+  max-width: 320px;
+  color: var(--text-primary);
+}
+
+.invoice-table td:last-child { border-right: none; }
+
+.td-row-num {
+  text-align: center;
+  color: var(--text-muted) !important;
+  font-weight: 600;
+  font-size: 0.75rem;
+  width: 40px;
+}
+
+/* ── Editable cell ── */
+.td-editable {
+  cursor: pointer;
+  position: relative;
+}
+
+.td-editable:hover {
+  background: rgba(0,180,216,0.05) !important;
+}
+
+.cell-value {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 300px;
+}
+
+.cell-value.empty { color: var(--text-muted); font-style: italic; }
+
+.cell-edit-icon {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  color: var(--kix-aqua);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.td-editable:hover .cell-edit-icon { opacity: 1; }
+
+/* ── Cell editing ── */
+.td-editing {
+  padding: 4px 8px !important;
+}
+
+.cell-edit-wrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cell-input {
+  flex: 1;
+  padding: 5px 8px;
+  border: 1.5px solid var(--kix-aqua);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.8125rem;
+  outline: none;
+  color: var(--text-primary);
+  min-width: 80px;
+}
+
+.cell-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.cell-btn.ok { background: #d1fae5; color: #065f46; }
+.cell-btn.cancel { background: #fee2e2; color: #b91c1c; }
+
+/* ── Who? cell ── */
+.td-who {
+  padding: 5px 10px !important;
+}
+
+.who-select {
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 4px 8px;
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  width: 100%;
+}
+
+.who-maryam .who-select { background: var(--who-maryam-bg); color: var(--who-maryam-text); }
+.who-rabaa .who-select   { background: var(--who-rabaa-bg);   color: var(--who-rabaa-text); }
+.who-hoor .who-select    { background: var(--who-hoor-bg);    color: var(--who-hoor-text); }
+.who-shamma .who-select  { background: var(--who-shamma-bg);  color: var(--who-shamma-text); }
+
+/* ── Row who tints ── */
+.maryam-row { background: rgba(255,243,205,0.2) !important; }
+.rabaa-row   { background: rgba(209,250,229,0.2) !important; }
+.hoor-row    { background: rgba(237,233,254,0.2) !important; }
+.shamma-row  { background: rgba(255,237,213,0.2) !important; }
+
+/* ── Delete ── */
+.td-actions { text-align: center; }
+
+.delete-row-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  opacity: 0;
+}
+
+.invoice-table tbody tr:hover .delete-row-btn { opacity: 1; }
+.delete-row-btn:hover { background: #fee2e2; color: #b91c1c; }
+
+/* ── Empty ── */
+.table-empty {
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  background: var(--bg-white);
+}

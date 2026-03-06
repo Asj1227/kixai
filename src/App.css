@@ -1,0 +1,60 @@
+/* ── Root layout ── */
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-page);
+}
+
+/* ── Main content area ── */
+.app-main {
+  flex: 1;
+  padding: 28px 24px;
+}
+
+.app-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 24px;
+  align-items: start;
+}
+
+.app-content.single {
+  grid-template-columns: 1fr;
+}
+
+.app-left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+
+.app-right {
+  position: sticky;
+  top: calc(var(--header-h) + 48px + 20px);
+}
+
+/* ── Sections ── */
+.app-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .app-content {
+    grid-template-columns: 1fr;
+  }
+
+  .app-right {
+    position: static;
+  }
+
+  .app-main {
+    padding: 20px 16px;
+  }
+}

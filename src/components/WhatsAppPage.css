@@ -1,0 +1,176 @@
+.wa-page {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+/* Hero */
+.wa-hero {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: linear-gradient(135deg, #1b5e20, #2e7d32, #25a244);
+  border-radius: var(--radius-xl);
+  padding: 32px 36px;
+  color: #fff;
+}
+
+.wa-hero-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wa-hero-title {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 6px;
+}
+
+.wa-hero-sub {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.9375rem;
+  max-width: 540px;
+}
+
+/* Section */
+.wa-section { display: flex; flex-direction: column; gap: 20px; }
+.wa-section-title { font-size: 1.25rem; }
+.wa-section-sub { color: var(--text-secondary); font-size: 0.9rem; margin-top: -12px; }
+
+/* Steps */
+.wa-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.wa-step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  position: relative;
+}
+
+.wa-step-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--kix-aqua), #0077b6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.wa-step-line {
+  position: absolute;
+  left: 17px;
+  top: 56px;
+  bottom: -20px;
+  width: 2px;
+  background: var(--border-mid);
+}
+
+.wa-step-card {
+  padding: 18px 20px;
+  margin-bottom: 12px;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.wa-step-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+.wa-step-card h3 { font-size: 0.9375rem; margin-bottom: 4px; }
+.wa-step-card p { font-size: 0.8125rem; }
+
+/* Tools */
+.wa-tools {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.wa-tool-card {
+  padding: 20px;
+  border-top: 3px solid transparent;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+.wa-tool-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+.wa-tool-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  border-top-width: 3px;
+}
+
+.wa-tool-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.wa-tool-name { font-size: 0.9375rem; font-weight: 700; margin-bottom: 4px; }
+.wa-tool-desc { font-size: 0.8125rem; margin-bottom: 14px; }
+.wa-tool-link { width: 100%; justify-content: center; }
+
+/* Guide */
+.wa-guide {
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.wa-guide-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.wa-guide-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--kix-aqua);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.wa-guide-step strong { font-size: 0.875rem; display: block; margin-bottom: 3px; }
+.wa-guide-step p { font-size: 0.8rem; }
+
+/* Note */
+.wa-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  font-size: 0.8125rem;
+}
+.wa-note span { font-size: 1.25rem; flex-shrink: 0; }
+.wa-note p { color: #92400e; }
