@@ -39,7 +39,7 @@ app.use('/api/extract', extractRoute);
 app.use('/api/chat', chatRoute);
 
 // Catch-all for React SPA
-app.get('*', (req, res) => {
+app.get('*all', (req, res) => {
   res.sendFile(path.join(distPath, 'index.html'));
 });
 
