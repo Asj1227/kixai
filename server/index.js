@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import healthRoute from './routes/health.js';
 import extractRoute from './routes/extract.js';
 import chatRoute from './routes/chat.js';
+import whatsappRoute from './routes/whatsapp.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -28,6 +29,7 @@ if (!activeKey) {
 // Middleware
 app.use(cors());
 app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ extended: true })); // Required for Twilio webhooks
 
 // Serve static files from the React app
 const distPath = path.join(__dirname, '../dist');
@@ -37,6 +39,7 @@ app.use(express.static(distPath));
 app.use('/api/health', healthRoute);
 app.use('/api/extract', extractRoute);
 app.use('/api/chat', chatRoute);
+app.use('/api/whatsapp', whatsappRoute);
 
 // Catch-all for React SPA
 app.get('*all', (req, res) => {
