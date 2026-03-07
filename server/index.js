@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import healthRoute from './routes/health.js';
 import extractRoute from './routes/extract.js';
 import chatRoute from './routes/chat.js';
-import whatsappRoute from './routes/whatsapp.js';
+import './utils/telegram.js'; // Start Telegram Bot
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -39,7 +39,6 @@ app.use(express.static(distPath));
 app.use('/api/health', healthRoute);
 app.use('/api/extract', extractRoute);
 app.use('/api/chat', chatRoute);
-app.use('/api/whatsapp', whatsappRoute);
 
 // Catch-all for React SPA
 app.get('*all', (req, res) => {

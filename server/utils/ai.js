@@ -49,7 +49,7 @@ Rules:
 
 const DEFAULT_MODEL = "gpt-4o-mini"; 
 
-function getOpenAI(userApiKey) {
+export function getOpenAI(userApiKey) {
   const key = userApiKey || process.env.OPENAI_API_KEY1 || process.env.OPENAI_API_KEY;
   if (!key) throw new Error("AUTH_ERROR: OPENAI_API_KEY (or OPENAI_API_KEY1) is not configured on the server, and no valid key was provided in headers.");
   return new OpenAI({ apiKey: key });
