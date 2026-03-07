@@ -4,7 +4,8 @@ import dotenv from 'dotenv';
 import healthRoute from './routes/health.js';
 import extractRoute from './routes/extract.js';
 import chatRoute from './routes/chat.js';
-import whatsappMetaRoute from './routes/meta_whatsapp.js';
+import chatRoute from './routes/chat.js';
+import { connectToWhatsApp, getWhatsAppStatus } from './utils/whatsapp_bot.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -39,7 +40,18 @@ app.use(express.static(distPath));
 app.use('/api/health', healthRoute);
 app.use('/api/extract', extractRoute);
 app.use('/api/chat', chatRoute);
-app.use('/api/whatsapp', whatsappMetaRoute);
+
+// WhatsApp QR Code Endpoint for Setup
+app.get('/api/whatsapp-qr', (req, res) => {
+  const status = getWhatsAppStatus();
+  if (status.connected) {
+    return res.send('<h1>✅ WhatsApp is Connected!</h1><p>You can now send invoices to your linked phone.</p>');
+  }
+  if (!status.qr) {
+    return res.send('<h1>⏳ Generating QR Code...</h1><p>Please refresh in a few seconds.</p>');
+  }
+  res.send(`<h1>Scan this with WhatsApp</h1><p>Settings > Linked Devices > Link a Device</p><img src="${status.qr}" style="width:300px; height:300px; image-rendering: pixelated;" /><p>Refresh this page after scanning.</p>`);
+});
 
 // Catch-all for React SPA
 app.get('*all', (req, res) => {
@@ -54,4 +66,5 @@ app.use((err, req, res, next) => {
 
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 KIXAI Backend running on http://0.0.0.0:${PORT}`);
+  connectToWhatsApp().catch(err => console.error("[WHATSAPP_INIT_ERROR]", err));
 });
