@@ -4,7 +4,6 @@ import dotenv from 'dotenv';
 import healthRoute from './routes/health.js';
 import extractRoute from './routes/extract.js';
 import chatRoute from './routes/chat.js';
-import chatRoute from './routes/chat.js';
 import { connectToWhatsApp, getWhatsAppStatus } from './utils/whatsapp_bot.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
